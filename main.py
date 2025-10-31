@@ -1,6 +1,7 @@
 import asyncio
 import sqlite3
 import os
+import sys
 from datetime import datetime
 import pytz
 import logging
@@ -17,13 +18,9 @@ logging.basicConfig(level=logging.INFO)
 ADMINS = [1920657547, 363720024]          # 🔐 ID администратора
 CHANNEL_ID = -1003281573197   # 📢 ID канала
 TIMEZONE = "Europe/Moscow"
-import os
-import sys
-import logging
 
 logging.basicConfig(level=logging.INFO)
 TOKEN = os.getenv("BOT_TOKEN")
-print(TOKEN)
 
 # Убираем случайные обрамляющие кавычки, если пользователь их добавил
 if isinstance(TOKEN, str):
@@ -42,11 +39,10 @@ if not isinstance(TOKEN, str):
     sys.exit(1)
 
 # Теперь можно безопасно создать Bot
-from aiogram import Bot
 bot = Bot(token=TOKEN)
 logging.info("Bot object created successfully.")
 
-#bot = Bot(token=TOKEN)
+
 dp = Dispatcher()
 scheduler = AsyncIOScheduler(timezone=TIMEZONE)
 
