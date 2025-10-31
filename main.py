@@ -23,6 +23,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 TOKEN = os.getenv("BOT_TOKEN")
+print(TOKEN)
 
 # Убираем случайные обрамляющие кавычки, если пользователь их добавил
 if isinstance(TOKEN, str):
