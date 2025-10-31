@@ -26,7 +26,7 @@ ADMINS = [1920657547, 363720024]          # 🔐 ID администратора
 CHANNEL_ID = -1003281573197   # 📢 ID канала
 TIMEZONE = "Europe/Moscow"
 
-bot = Bot(token=TOKEN)
+#bot = Bot(token=TOKEN)
 dp = Dispatcher()
 scheduler = AsyncIOScheduler(timezone=TIMEZONE)
 
