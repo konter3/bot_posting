@@ -14,7 +14,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 logging.basicConfig(level=logging.INFO)
 
 # === НАСТРОЙКИ ===
-TOKEN = os.getenv("TOKEN")
+TOKEN = os.getenv("BOT_TOKEN")
 ADMINS = [1920657547, 363720024]          # 🔐 ID администратора
 CHANNEL_ID = -1003281573197   # 📢 ID канала
 TIMEZONE = "Europe/Moscow"
