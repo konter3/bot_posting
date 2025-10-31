@@ -14,6 +14,13 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 logging.basicConfig(level=logging.INFO)
 
 # === НАСТРОЙКИ ===
+import logging
+logging.basicConfig(level=logging.INFO)
+
+TOKEN = os.getenv("BOT_TOKEN")
+
+logging.info("BOT_TOKEN repr: %r; type: %s", TOKEN, type(TOKEN))
+
 TOKEN = os.getenv('BOT_TOKEN')
 ADMINS = [1920657547, 363720024]          # 🔐 ID администратора
 CHANNEL_ID = -1003281573197   # 📢 ID канала
