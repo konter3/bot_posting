@@ -14,17 +14,36 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 logging.basicConfig(level=logging.INFO)
 
 # === НАСТРОЙКИ ===
-import logging
-logging.basicConfig(level=logging.INFO)
-
-TOKEN = os.getenv("BOT_TOKEN")
-
-logging.info("BOT_TOKEN repr: %r; type: %s", TOKEN, type(TOKEN))
-
-TOKEN = os.getenv('BOT_TOKEN')
 ADMINS = [1920657547, 363720024]          # 🔐 ID администратора
 CHANNEL_ID = -1003281573197   # 📢 ID канала
 TIMEZONE = "Europe/Moscow"
+import os
+import sys
+import logging
+
+logging.basicConfig(level=logging.INFO)
+TOKEN = os.getenv("BOT_TOKEN")
+
+# Убираем случайные обрамляющие кавычки, если пользователь их добавил
+if isinstance(TOKEN, str):
+    TOKEN = TOKEN.strip()
+    if (TOKEN.startswith("'") and TOKEN.endswith("'")) or (TOKEN.startswith('"') and TOKEN.endswith('"')):
+        TOKEN = TOKEN[1:-1]
+
+# Проверка
+if not TOKEN:
+    logging.error("BOT_TOKEN is not set. Please set environment variable BOT_TOKEN with your bot token.")
+    # Завершаем процесс, чтобы Bothost не держал контейнер в ошибочном состоянии
+    sys.exit(1)
+
+if not isinstance(TOKEN, str):
+    logging.error("BOT_TOKEN has wrong type: %s", type(TOKEN))
+    sys.exit(1)
+
+# Теперь можно безопасно создать Bot
+from aiogram import Bot
+bot = Bot(token=TOKEN)
+logging.info("Bot object created successfully.")
 
 #bot = Bot(token=TOKEN)
 dp = Dispatcher()
