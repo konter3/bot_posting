@@ -15,8 +15,8 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 logging.basicConfig(level=logging.INFO)
 
 # === НАСТРОЙКИ ===
-ADMINS = [1920657547, 363720024]          # 🔐 ID администратора
-CHANNEL_ID = -1003281573197   # 📢 ID канала
+ADMINS = []          # 🔐 ID администратора
+CHANNEL_ID = -   # 📢 ID канала
 TIMEZONE = "Europe/Moscow"
 
 logging.basicConfig(level=logging.INFO)
